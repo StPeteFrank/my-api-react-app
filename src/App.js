@@ -4,29 +4,22 @@ import './App.css'
 import axios from 'axios'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = this.initialState
+  }
+
   componentDidMount() {
     axios.get('https://localhost:5001/api/animals').then(json => {
-      console.log({ json })
+      console.log(json)
     })
   }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="Header">
+        <h1>Safari Vacation</h1>
+        <h2>What, Where, and How Many</h2>
       </div>
     )
   }
