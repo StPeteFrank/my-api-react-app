@@ -7,7 +7,9 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      animals: []
+      animals: [],
+      jungle: [],
+      desert: []
     }
   }
 
@@ -17,14 +19,34 @@ class App extends Component {
         animals: response.data
       })
     })
+    axios.get('https://localhost:5001/api/animals/jungle').then(response => {
+      this.setState({
+        jungle: response.data
+      })
+    })
+    axios.get('https://localhost:5001/api/animals/desert').then(response => {
+      this.setState({
+        desert: response.data
+      })
+    })
   }
 
   render() {
     return (
-      <div className="Header">
+      <div className="App">
         <h1>Safari Vacation</h1>
         <h2>What, Where, and How Many</h2>
+        <h3>What Animals Did You See?</h3>
+
         {this.state.animals.map((animal, index) => {
+          return <p key={index}>{animal.species}</p>
+        })}
+        <h3>What Animals Did You See In The Jungle?</h3>
+        {this.state.jungle.map((animal, index) => {
+          return <p key={index}>{animal.species}</p>
+        })}
+        <h3>What Animals Did You See In The Desert?</h3>
+        {this.state.desert.map((animal, index) => {
           return <p key={index}>{animal.species}</p>
         })}
       </div>

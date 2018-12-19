@@ -27,7 +27,11 @@ h2 {
   justify-content: center;
   align-items: center;
   color: whitesmoke;
+  margin: 6vh;
 }
-.Header {
+.App {
   /* background-color: rgb(20, 42, 243); */
+}
+p {
+  color: whitesmoke;
 }
