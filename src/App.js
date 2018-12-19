@@ -1,8 +1,15 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import axios from 'axios'
 
 class App extends Component {
+  componentDidMount() {
+    axios.get('https://localhost:5001/api/animals').then(json => {
+      console.log({ json })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -21,8 +28,8 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
