@@ -6,6 +6,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(rgb(185, 250, 6), rgb(2, 13, 107));
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 code {
@@ -25,5 +29,5 @@ h2 {
   color: whitesmoke;
 }
 .Header {
-  background-color: rgb(20, 42, 243);
+  /* background-color: rgb(20, 42, 243); */
 }
