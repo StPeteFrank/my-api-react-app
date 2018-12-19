@@ -29,6 +29,11 @@ class App extends Component {
         desert: response.data
       })
     })
+    axios.delete('http://localhost:5000/api/animals/1').then(response => {
+      this.setState({
+        deleteDesert: response.data
+      })
+    })
   }
 
   render() {
@@ -50,7 +55,9 @@ class App extends Component {
             return <p key={index}>{animal.species}</p>
           })}
         </div>
-        <button>Remove Desert Animals</button>
+        <div className="RemoveDesertButton">
+          <button>Remove Desert Animals</button>
+        </div>
       </div>
     )
   }
