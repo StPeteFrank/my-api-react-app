@@ -35,3 +35,6 @@ h2 {
 p {
   color: whitesmoke;
 }
+button {
+  cursor: pointer;
+}
