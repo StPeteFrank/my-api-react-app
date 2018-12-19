@@ -36,19 +36,21 @@ class App extends Component {
       <div className="App">
         <h1>Safari Vacation</h1>
         <h2>What, Where, and How Many</h2>
-        <h3>What Animals Did You See?</h3>
-
-        {this.state.animals.map((animal, index) => {
-          return <p key={index}>{animal.species}</p>
-        })}
-        <h3>What Animals Did You See In The Jungle?</h3>
-        {this.state.jungle.map((animal, index) => {
-          return <p key={index}>{animal.species}</p>
-        })}
-        <h3>What Animals Did You See In The Desert?</h3>
-        {this.state.desert.map((animal, index) => {
-          return <p key={index}>{animal.species}</p>
-        })}
+        <div className="Display">
+          <h3>What Animals Did You See?</h3>
+          {this.state.animals.map((animal, index) => {
+            return <p key={index}>{animal.species}</p>
+          })}
+          <h3>What Animals Did You See In The Jungle?</h3>
+          {this.state.jungle.map((animal, index) => {
+            return <p key={index}>{animal.species}</p>
+          })}
+          <h3>What Animals Did You See In The Desert?</h3>
+          {this.state.desert.map((animal, index) => {
+            return <p key={index}>{animal.species}</p>
+          })}
+        </div>
+        <button>Remove Desert Animals</button>
       </div>
     )
   }
