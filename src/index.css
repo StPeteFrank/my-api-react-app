@@ -37,4 +37,9 @@ p {
 }
 button {
   cursor: pointer;
+  margin: 2vh;
+  height: 8vh;
+  width: 8vh;
+  border-radius: 1vh;
+  background-color: grey;
 }

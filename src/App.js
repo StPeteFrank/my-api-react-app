@@ -9,16 +9,20 @@ class App extends Component {
     this.state = {
       animals: [],
       jungle: [],
-      desert: []
+      desert: [],
+      deleteDesert: []
     }
   }
 
-  componentDidMount() {
+  getAllAnimals = () => {
     axios.get('https://localhost:5001/api/animals').then(response => {
       this.setState({
         animals: response.data
       })
     })
+  }
+  componentDidMount() {
+    this.getAllAnimals()
     axios.get('https://localhost:5001/api/animals/jungle').then(response => {
       this.setState({
         jungle: response.data
@@ -29,11 +33,12 @@ class App extends Component {
         desert: response.data
       })
     })
-    axios.delete('http://localhost:5000/api/animals/1').then(response => {
-      this.setState({
-        deleteDesert: response.data
-      })
-    })
+  }
+  deleteDesert = () => {
+    // console.log('click')
+    axios
+      .delete('https://localhost:5001/api/animals/location/desert')
+      .then(this.getAllAnimals())
   }
 
   render() {
@@ -55,8 +60,8 @@ class App extends Component {
             return <p key={index}>{animal.species}</p>
           })}
         </div>
-        <div className="RemoveDesertButton">
-          <button>Remove Desert Animals</button>
+        <div className="RemoveButton">
+          <button onClick={this.deleteDesert}>Remove Desert Animals</button>
         </div>
       </div>
     )
