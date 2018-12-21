@@ -40,6 +40,13 @@ class App extends Component {
           totalcount: response.data
         })
       })
+    axios
+      .get('https://localhost:5001/api/animals/totalcount/lions/tigers/bears')
+      .then(response => {
+        this.setState({
+          totalcounteach: response.data
+        })
+      })
   }
   deleteDesert = () => {
     // console.log('click')
@@ -67,12 +74,14 @@ class App extends Component {
             return <p key={index}>{animal.species}</p>
           })}
         </div>
-        <h3>Would you like to hunt?</h3>
+        <h3>Would you like to remove desert animals?</h3>
         <div className="RemoveButton">
           <button onClick={this.deleteDesert}>Remove Desert Animals</button>
         </div>
         <h3>How was the total count of animals that you saw?</h3>
         <p>{this.state.totalcount}</p>
+        <h3>How many Lions, Tigers, and Bears did you see?</h3>
+        <p>{this.state.totalcounteach}</p>
       </div>
     )
   }
