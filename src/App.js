@@ -9,8 +9,8 @@ class App extends Component {
     this.state = {
       animals: [],
       jungle: [],
-      desert: [],
-      deleteDesert: []
+      desert: []
+      // deleteDesert: []
     }
   }
 
@@ -41,7 +41,9 @@ class App extends Component {
         })
       })
     axios
-      .get('https://localhost:5001/api/animals/totalcount/lions/tigers/bears')
+      .get(
+        'https://localhost:5001/api/animals/totalcount/lions/tigers/bears/gorillas'
+      )
       .then(response => {
         this.setState({
           totalcounteach: response.data
@@ -80,7 +82,10 @@ class App extends Component {
         </div>
         <h3>How was the total count of animals that you saw?</h3>
         <p>{this.state.totalcount}</p>
-        <h3>How many Lions, Tigers, and Bears did you see?</h3>
+        <h3>
+          How many Lions, Tigers, and Bears did you see? Throw Gorillas on
+          there.
+        </h3>
         <p>{this.state.totalcounteach}</p>
       </div>
     )
@@ -92,13 +97,3 @@ export default App
 // .then(json => {
 //   console.log(json)
 // }
-
-//  //Add all the CountOfTimesSeen and get a total number of animals seen
-//  var totalanimalsseen = db.SeenAnimals.Sum(seenanimal => seenanimal.CountOfTimesSeen);
-//  Console.WriteLine(totalanimalsseen);
-
-//  db.SaveChanges();
-
-//  //Get the CountOfTimesSeen of lions, tigers and bears
-//  var totalofeachanimalseen = db.SeenAnimals.Where(seenanimal => seenanimal.Species == "Lions" || seenanimal.Species == "Tigers" || seenanimal.Species == "Bears" || seenanimal.Species == "Gorilla").Sum(seenanimal => seenanimal.CountOfTimesSeen);
-//  Console.WriteLine(totalofeachanimalseen);
